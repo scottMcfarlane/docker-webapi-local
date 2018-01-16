@@ -2,29 +2,11 @@
 
 namespace WebApiLocal.Controllers
 {
-    [Route("/")]
+    [Route("{*url}")]
+    [InterceptActionFilter]
     public class RouteController : Controller
     {
-        [HttpGet]
-        public IActionResult Get(string route)
-        {
-            return Ok(route);
-        }
-
-        [HttpPost]
-        public IActionResult Post(string route)
-        {
-            return Ok(route);
-        }
-
-        [HttpPut]
-        public IActionResult Put(string route)
-        {
-            return Ok(route);
-        }
-
-        [HttpDelete]
-        public IActionResult Delete(string route)
+        public IActionResult Process(string route, object headers, object body)
         {
             return Ok(route);
         }
