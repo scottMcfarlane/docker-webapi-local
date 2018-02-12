@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using WebApiLocal.Controllers;
 
-namespace WebApiLocal
+namespace WebApiLocal.ActionFilters
 {
     public class InterceptActionFilter : ActionFilterAttribute
     {

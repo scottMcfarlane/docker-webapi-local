@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApiLocal.ActionFilters;
+using WebApiLocal.RouteProcessors;
 
 namespace WebApiLocal.Controllers
 {
@@ -6,9 +8,16 @@ namespace WebApiLocal.Controllers
     [InterceptActionFilter]
     public class RouteController : Controller
     {
+        private IRouteProcessor _routeProcessor;
+
+        public RouteController(IRouteProcessor routeProcessor)
+        {
+            _routeProcessor = routeProcessor;
+        }
+
         public IActionResult Process(string route, object headers, object body)
         {
-            return Ok(route);
+            return _routeProcessor.Process(route);
         }
     }
 }
