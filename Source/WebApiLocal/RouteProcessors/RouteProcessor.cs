@@ -7,14 +7,16 @@ namespace WebApiLocal.RouteProcessors
 {
     public class RouteProcessor : IRouteProcessor
     {
-        private static Dictionary<string, StatusCodeResult> RouteTable => new Dictionary<string, StatusCodeResult>()
+        private readonly Dictionary<string, ContentResult> _routeTable;
+
+        public RouteProcessor(Dictionary<string, ContentResult> routeTable)
         {
-            {"/Get/This/Route", new UnauthorizedResult() }
-        };
+            _routeTable = routeTable;
+        }
 
         public ActionResult Process(string route)
         {
-            if (RouteTable.TryGetValue(route, out var result))
+            if (_routeTable.TryGetValue(route, out var result))
                 return result;
 
             return new ContentResult()
