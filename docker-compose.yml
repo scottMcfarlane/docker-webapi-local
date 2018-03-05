@@ -3,6 +3,6 @@ services:
   api:
     build:
       context: ./Source
-      dockerfile: webapilocal-docker
+      dockerfile: webapi-docker
     ports:
       - "9050:9050"
