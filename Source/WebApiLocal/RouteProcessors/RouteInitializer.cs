@@ -10,7 +10,7 @@ namespace WebApiLocal.RouteProcessors
     {
         public static Dictionary<string, ContentResult> Init()
         {
-            var routeFile = File.ReadAllText("routes.json");
+            var routeFile = File.ReadAllText("route-data.json");
             var routeContent = JsonConvert.DeserializeObject<List<Route>>(routeFile);
             var routeDictionary = new Dictionary<string, ContentResult>();
 

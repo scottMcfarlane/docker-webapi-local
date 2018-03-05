@@ -14,12 +14,19 @@ namespace WebApiLocal
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
-        }
+          var config = new ConfigurationBuilder()
+              .SetBasePath(Directory.GetCurrentDirectory())
+              .AddJsonFile("hosting.json", optional: true)
+              .Build();
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+          var host = new WebHostBuilder()
+              .UseKestrel()
+              .UseContentRoot(Directory.GetCurrentDirectory())
+              .UseStartup<Startup>()
+              .UseConfiguration(config)
+              .Build();
+
+          host.Run();
+        }
     }
 }
