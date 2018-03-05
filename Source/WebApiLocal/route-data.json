@@ -1,5 +1,0 @@
-﻿[{
-    "RoutePath":"/Get/This/Route/",
-    "HttpStatusCode":"401",
-    "Content":"Whoops, you're not allowed here"
-}]
