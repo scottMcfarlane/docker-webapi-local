@@ -9,8 +9,8 @@ BUILD_TAG=$(QNAME):$(IMAGE_VERSION)
 LATEST_TAG=$(QNAME):latest
 
 build:
-	docker build \
 	@echo "Building docker image"
+	docker build \
 		--build-arg VCS_REF=$(VCS_REF) \
 		--build-arg IMAGE_VERSION=$(IMAGE_VERSION) \
 		-t $(GIT_TAG) .
