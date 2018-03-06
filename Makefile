@@ -14,6 +14,9 @@ build:
 		--build-arg IMAGE_VERSION=$(IMAGE_VERSION) \
 		-t $(GIT_TAG) .
 
+lint:
+	docker run -it --rm -v "$(PWD)/Dockerfile:/Dockerfile:ro" redcoolbeans/dockerlint
+
 tag:
 	docker tag $(GIT_TAG) $(BUILD_TAG)
 	docker tag $(GIT_TAG) $(LATEST_TAG)
