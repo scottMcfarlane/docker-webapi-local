@@ -14,5 +14,8 @@ env:
 script:
 - make build lint
 
-after_success:
-- make tag
+deploy:
+-	echo "tagging github repository - " 0.0.$(TRAVIS_BUILD_NUMBER)
+-	git tag 0.0.$(TRAVIS_BUILD_NUMBER)
+on:
+    branch: aws-deploy
