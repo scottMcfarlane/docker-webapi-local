@@ -18,4 +18,4 @@ deploy:
   provider: script
   script: make tag
   on:
-    branch: aws-deploy
+    branch: web-api
