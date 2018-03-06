@@ -22,6 +22,7 @@ lint:
 tag:
 	@echo "tagging github repository - " $(IMAGE_VERSION)
 	git tag $(IMAGE_VERSION)
+	git push origin --tags
 
 
 login:
