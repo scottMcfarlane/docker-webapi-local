@@ -10,19 +10,19 @@ LATEST_TAG=$(QNAME):latest
 
 build:
 	docker build \
+	@echo "Building docker image"
 		--build-arg VCS_REF=$(VCS_REF) \
 		--build-arg IMAGE_VERSION=$(IMAGE_VERSION) \
 		-t $(GIT_TAG) .
 
 lint:
+	@echo "Linting docker image"
 	docker run -it --rm -v "$(PWD)/Dockerfile:/Dockerfile:ro" redcoolbeans/dockerlint
 
 tag:
-	docker tag $(GIT_TAG) $(BUILD_TAG)
-	docker tag $(GIT_TAG) $(LATEST_TAG)
-
-gittag:
+	@echo "tagging github repository - " $(IMAGE_VERSION)
 	git tag $(IMAGE_VERSION)
+
 
 login:
 	@docker login -u "$(DOCKER_USER)" -p "$(DOCKER_PASS)"
