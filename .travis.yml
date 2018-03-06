@@ -1,9 +1,8 @@
 sudo: false
-
-dist: trusty
+language: c
 
 services:
-- docker
+  - docker
 
 env:
   global:
@@ -12,5 +11,5 @@ env:
   - secure: PxDpd++WV08DvlWO4Rohqitp6d46Dg8Wht5FAw9AUGkcAB2LoVMu9fCz3Cb8HiT9cMJHFjbVo02u06Y/wfN0g++Hoj2vLekcGKNz97CG+6rOSDmmlq8VoCeJWUG8j9OP7l2j+JId/FiSs9/5u41tDZy29OyVpN97v5lgfs3jLBk4ndtuCePyYXqM7p+ZbRNLUHIr0/cLjX6KvDr3YEKMl72zlnRFXQ4ksYlhT2wnCAqDilwphp4lcK/nQhjZVcFndBmr6oW6/0r+SDCuhMMMKUibZK4hId1c4thkmjqUXyhx+0e53cq65BEB1QYAdqp0EPxUHBZe+YOFgzcWKFpN4/WvED7MNiDA0FvRNiLbBuQ20DM3zrpE/aoqW+DpYC+/GUjpn/HlE030ad7v2xB+14WUHWiz5vf3ONibGy05uzuvI6+wjmHKwNmLmphLNcPkVqLxW82gPQy/avtMqoZFoJUAr55V1HtXGhW3b4WEIZ0f590qNvYWGRhIfmJ1K06C49IqB6DsQJiqmuJQba9SyhM/bjm+LNDD0TJspzmKgHKIC8XffR2eqWqCR0dH3Ba91N895WVt475zDzenDdhSmd9h093ZID7g5PZCCd00z18o4SxSQFiy4TZoVUYIqUsyujD539HIMXMValgxhSSYAoNDMSRt0U/I/bStLluFTjc= #DOCKER_PASS
   - COMMIT=${TRAVIS_COMMIT::8}
 
-after_success:
-- ./deployment/deploy.sh
+script:
+- make lint build tag push
