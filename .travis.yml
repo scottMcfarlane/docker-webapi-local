@@ -14,12 +14,5 @@ env:
 script:
 - make build lint
 
-script:
+after_success:
 - make gittag
-  on:
-    branch: aws-deploy
-
-script:
-- make tag
-  on:
-    branch: master
