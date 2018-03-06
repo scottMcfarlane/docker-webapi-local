@@ -12,4 +12,4 @@ env:
   - COMMIT=${TRAVIS_COMMIT::8}
 
 script:
-- make lint build tag push
+- make build tag push
