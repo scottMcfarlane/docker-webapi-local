@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ "$TRAVIS_BRANCH" == "prod" ]; then
+if [ "$TRAVIS_BRANCH" == "web-api" ]; then
   docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
   export REPO=scottmcfarlane/docker-webapi-local
   export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
