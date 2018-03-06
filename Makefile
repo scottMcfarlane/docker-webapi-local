@@ -1,4 +1,4 @@
-OWNER=scottMcfarlane
+OWNER=scottmcfarlane
 IMAGE_NAME=docker-webapi-local
 VCS_REF=`git rev-parse --short HEAD`
 IMAGE_VERSION=0.0.$(TRAVIS_BUILD_NUMBER)
