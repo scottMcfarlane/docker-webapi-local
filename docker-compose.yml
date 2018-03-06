@@ -2,7 +2,7 @@ version: "3"
 services:
   api:
     build:
-      context: ./Source
+      context: ./source
       dockerfile: webapi-docker
     ports:
       - "9050:9050"
