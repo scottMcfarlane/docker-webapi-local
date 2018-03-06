@@ -12,4 +12,14 @@ env:
   - COMMIT=${TRAVIS_COMMIT::8}
 
 script:
-- make build tag lint
+- make build lint
+
+script:
+- make gittag
+  on:
+    branch: aws-deploy
+
+script:
+- make tag
+  on:
+    branch: master

@@ -21,6 +21,9 @@ tag:
 	docker tag $(GIT_TAG) $(BUILD_TAG)
 	docker tag $(GIT_TAG) $(LATEST_TAG)
 
+gittag:
+	git tag $(IMAGE_VERSION)
+
 login:
 	@docker login -u "$(DOCKER_USER)" -p "$(DOCKER_PASS)"
 
