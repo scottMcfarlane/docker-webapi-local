@@ -22,7 +22,7 @@ lint:
 tag:
 	@echo "tagging github repository - " $(IMAGE_VERSION)
 	git tag $(IMAGE_VERSION)
-	git push origin -q https://scottMcfarlane:$GITHUB_API_KEY@github.com/scottMcfarlane/docker-webapi-local --tags
+	git push origin -q https://scottMcfarlane:$(GITHUB_API_KEY)@github.com/scottMcfarlane/docker-webapi-local --tags
 
 
 login:
