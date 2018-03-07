@@ -6,10 +6,14 @@ env:
   global:
   - secure: VTu98T+xH2TJAZXtXdcalrCl+7yFYKGL4sRFPlTlDln+e1j/XfCImJAajve3/u5UK8w+eBf7ihmtPglRExmJiIjUMKDAd7lcOdqSIcVCkdPlVjqhmi96QA+KkhHRMKnO1+kgYhzpFCo4bBR5ow15L/qG0jEBwKVIMGzw2hfMKh72PWY+nxwV6qwLzfzWjm6y7bldCYlcH0kK97o3EwaAzxXKGQhck0dKatCg0MmpwyEItdQ3UlnPkdnnL84z6HOmI5Qazl9ed4sANYSgbD3v48reP+KBYxceD3RUOoi4ijF/NOEb6BolC1kyzpkwjg/rgmRymj33+ZHrNyAZLSLGad1AS301QXDP+f7VdCj2SJsTFYnRLEGyewVfEagzzLKQ0fxEYFVUCQaHwzh3tdt3BZE842vY1LTMHJB01i1EclGue4boHNIwiZ7tTT3zNIquiMQUcJffpXxN5EIts98mSrPp6UDSxDpvUbX5NexH76/uDKViZK9OcDnMvjyuW4EqDNKxETt5o1aIki3NG74nFMj0ChpCTnZwsaO24PLudDxx7CxIse+NB2h5dm5NdYxzTzoT8ZbwJWEnAzfcexw5i8qa2k+BJ8C2tZcUn9MRH3kw4smNVUgqua0cmjCIqfggrqSxXbDWt3OoO5SNKLq/C7bgOo/U2QrXAog/d/0mvFI= #GITHUB_API_KEY
 
+branches:
+  only:
+    - master
+
 script:
 - make build lint
 deploy:
   provider: script
   script: make tag
   on:
-    branch: web-api
+    branch: master
