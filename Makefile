@@ -5,8 +5,6 @@ IMAGE_VERSION=0.0.$(TRAVIS_BUILD_NUMBER)
 QNAME=$(OWNER)/$(IMAGE_NAME)
 
 GIT_TAG=$(QNAME):$(VCS_REF)
-BUILD_TAG=$(QNAME):$(IMAGE_VERSION)
-LATEST_TAG=$(QNAME):latest
 
 build:
 	@echo "Building docker image"
@@ -23,12 +21,3 @@ tag:
 	@echo "tagging github repository - " $(IMAGE_VERSION)
 	git tag $(IMAGE_VERSION)
 	git push -q https://scottMcfarlane:$(GITHUB_API_KEY)@github.com/scottMcfarlane/docker-webapi-local.git --tags
-
-
-login:
-	@docker login -u "$(DOCKER_USER)" -p "$(DOCKER_PASS)"
-
-push: login
-	docker push $(GIT_TAG)
-	docker push $(BUILD_TAG)
-	docker push $(LATEST_TAG)
